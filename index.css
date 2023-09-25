@@ -181,3 +181,48 @@ button[type="submit"] {
 #PostText{
     display: none;
 }
+
+
+/* Define a media query for print */
+@media print {
+    /* Hide the header, scroll buttons, and result div */
+    header, .scroll-buttons, #result {
+        display: none;
+    }
+    .contactInfo{
+        color: black;
+        border: none;
+    }
+    .contactInfo label{
+        background-color: white;
+        color: black;
+        border: 0
+    }
+    /* Condense the form elements for printing */
+    .contents {
+        padding: 0px;
+        margin: 0;
+    }
+
+    /* Adjust the font size and other styles for better printing */
+    body {
+        font-size: 8px;
+        background-color: white; /* Set a white background for better readability */
+    }
+    .options label{
+        border: 0px;
+        padding: 0px;
+    }
+    /* Add page breaks for better printing (optional) */
+    .question {
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* Hide the "N/A" checkboxes for email and phone */
+    .checkbox {
+        display: none;
+    }
+
+}
