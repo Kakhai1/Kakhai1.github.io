@@ -5,8 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton")
     const questions = document.querySelectorAll('.question');
     const postText = document.getElementById('PostText');
+    const savebutton = document.getElementById('saveButton')
     console.log("Question Length: ", questions.length)
     let currentQuestionIndex = 0;
+    
 /* ########## Code for if page is fully revealed and want scroll to next question.
 
     function scrollToNextQuestion() {
@@ -134,6 +136,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
 //!Submit Button Logic
 //*###########################*//
 
+
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
@@ -221,7 +224,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
 
     // Function to send an email (implement this part)
     function sendEmail(fullName, email, phonenum, answers, riskProfile) {
-        // Implement email sending logic here
+        //! Placeholder
     }
     // Function to validate email format
     function isValidEmail(email) {
@@ -232,6 +235,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
         window.print();
     });
 
+    //! Scroll to top/bottom Logic
     const scrollToTopButton = document.getElementById("scrollToTopButton");
     const scrollToBottomButton = document.getElementById("scrollToBottomButton");
 
@@ -250,4 +254,6 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
             questionnaireSection.scrollIntoView({ behavior: "smooth", block: "end" });
         }
     });
+
+    
 });
