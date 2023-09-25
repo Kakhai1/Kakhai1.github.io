@@ -29,7 +29,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
  ##############   */
 
-    
+//! N/A Checkbox logic
+// Add event listeners to the "Not Available" checkboxes
+const notAvailableEmailCheckbox = document.getElementById("notAvailableEmail");
+const notAvailablePhoneCheckbox = document.getElementById("notAvailablePhone");
+
+notAvailableEmailCheckbox.addEventListener("change", function () {
+    const emailInput = document.getElementById("email");
+    if (notAvailableEmailCheckbox.checked) {
+        // If "Not Available" is checked, disable the email input and clear its value
+        emailInput.disabled = true;
+        emailInput.value = "";
+    } else {
+        // If unchecked, enable the email input
+        emailInput.disabled = false;
+    }
+});
+
+notAvailablePhoneCheckbox.addEventListener("change", function () {
+    const phoneInput = document.getElementById("phonenum");
+    if (notAvailablePhoneCheckbox.checked) {
+        // If "Not Available" is checked, disable the phone input and clear its value
+        phoneInput.disabled = true;
+        phoneInput.value = "";
+    } else {
+        // If unchecked, enable the phone input
+        phoneInput.disabled = false;
+    }
+});
+
+
+//*###########################*//
+//! Animation Logic //
+ //*###########################*//
 // Function to reveal the next question with fade-in/fade-out animation
 function revealNextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
@@ -94,22 +126,38 @@ radioInputsQuestion8.forEach(input => {
     input.addEventListener('change', revealAllQuestions);
 });
 
-    // Initially display the first question
-    questions[currentQuestionIndex].classList.add('question-animate-in');
-    // End of question navigation code
+// Initially display the first question
+questions[currentQuestionIndex].classList.add('question-animate-in');
+// End of question navigation code
+
+//*###########################*//
+//!Submit Button Logic
+//*###########################*//
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const fullName = document.getElementById("fullName").value;
-        const email = document.getElementById("email").value;
 
-        // Validate email format
-        if (!isValidEmail(email)) {
-            alert("Please enter a valid email address.");
-            return; // Prevent form submission if the email format is invalid
+        const notAvailableEmail = notAvailableEmailCheckbox.checked;
+        const notAvailablePhone = notAvailablePhoneCheckbox.checked;
+    
+        if (!notAvailableEmail) {
+            const email = document.getElementById("email").value;
+            // Validate email format
+            if (!isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return; // Prevent form submission if the email format is invalid
+            }
         }
-
+    
+        if (!notAvailablePhone) {
+            const phonenum = document.getElementById("phonenum").value;
+            if (phonenum.length > 7 && phonenum.length < 12) {
+                alert("Please enter a valid phone number.");
+                return;
+            }
+        }
 
         // Collect answers and their values
         const answers = [];
@@ -172,7 +220,7 @@ radioInputsQuestion8.forEach(input => {
     });
 
     // Function to send an email (implement this part)
-    function sendEmail(fullName, email, answers, riskProfile) {
+    function sendEmail(fullName, email, phonenum, answers, riskProfile) {
         // Implement email sending logic here
     }
     // Function to validate email format
