@@ -109,6 +109,7 @@ button[type="submit"] {
     margin-left: 50px;
     width: 50px,
 }
+/* Desktop styles */
 .scroll-buttons {
     position: fixed;
     bottom: 20px;
@@ -125,15 +126,37 @@ button[type="submit"] {
     border: none;
     cursor: pointer;
     margin-bottom: 10px;
-    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Add border-radius to the transition */
-    border-radius: 10px; /* Rounded edges */
-    box-shadow: -4px 5px 6px rgba(0, 0, 0, 0.5); /* Modify the values as needed */
-
+    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: -4px 5px 6px rgba(0, 0, 0, 0.5);
 }
 
 .scroll-buttons button:hover {
-    background-color: #ba76e8; /* Darken the button on hover */
+    background-color: #ba76e8;
 }
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .scroll-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* Adjust the right position for mobile */
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+
+    .scroll-buttons button {
+        padding: 10px 15px; /* Adjust padding for mobile */
+        font-size: 12px; /* Adjust font size for mobile */
+        border-radius: 10px;
+    }
+
+    .scroll-buttons button:hover {
+        background-color: #ba76e8;
+    }
+}
+
 #submitButton {
     padding: 10px 20px 10px 20px;
     display: none;
