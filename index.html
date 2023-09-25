@@ -1,57 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Bellybutton Biodiversity</title>
-  <script src="https://d3js.org/d3.v6.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        #result {
+            display: none;
+        }
+    </style>
+    <script src="logic.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <h1>Made by Khai :)</h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Belly Button Biodiversity Dashboard</h1>
-        <p>Use the interactive charts below to explore the dataset :D</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <select id="dropdown" onchange="optionChanged(this.value)"></select>
+    <header id="headerTitle"><img src="icons/LFSlogophotoshopped.jpg" alt="Logo">
+        <h1>Risk Profile Questionnaire</h1>
+    </header>
+    <br>
+    <div class=contents>
+    <form id="questionnaire-form">
+        <div class="formheader"><h2>Risk Profile Questionaire</h2></div>
+        <div class="contactInfo">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" required>
+        <br><br>
+                <label for="email">Email:</label>
+               <input type="email" id="email" required>
+        <br><br>        
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
+        <hr>
+        <div class="QuestionContainer">
+        <div class="question" required>
+            <h4>Q1: At What stage of life are you?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q1" value="1" data-value="Young family small savings amount">
+                    Young family small savings amount
+                </label>
+                <label class="form-control">
+                    <input type="radio" name="q1" value="2" data-value="Retired">
+                    Retired
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q1" value="3" data-value="Family with savings to invest">
+                    Family with savings to invest
+                </label class="form-control">
+                <label class="form-control">
+                     <input type="radio" name="q1" value="4" data-value="Couple with savings to invest (no kids)">
+                    Couple with savings to invest (no kids)
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q1" value="5" data-value="Single with savings to invest">
+                    Single with savings to invest
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q1" value="6" data-value="Pre-retirement, empty nest, time to save">
+                    Pre-retirement, empty nest, time to save
+                </label class="form-control">
+            </div>            
         </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge">
+        <div class="question hidden" required>
+            <h4>Q2: What rate of investment return do you reasonably expect to achieve?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q2" value="1" data-value="Bank deposit rates only">
+                    Bank deposit rates only
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q2" value="2" data-value="Inflation plus 2% to 4% per annum">
+                    Inflation plus 2% to 4% per annum
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q2" value="3" data-value="Inflation plus 5% to 7% per annum">
+                    Inflation plus 5% to 7% per annum
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q2" value="4" data-value="Inflation plus 8% to 12% per annum">
+                    Inflation plus 8% to 12% per annum
+                </label class="form-control">
+            </div>            
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/js/app.js"></script>
-<!--   <script src="./static/js/bonus.js"></script> -->
-
+        <div class="question hidden" required id="q3">
+            <h4>Q3: If you are investing for the long-term (7 years or more) how often would you expect a negative year of returns?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q3" value="1" data-value="Never">
+                    Never
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q3" value="2" data-value="1 in 7 years">
+                    1 in 7 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q3" value="3" data-value="1 in 5 years">
+                    1 in 5 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q3" value="4" data-value="1 in 3 years">
+                    1 in 3 years
+                </label class="form-control">
+            </div>            
+        </div>
+        <div class="question hidden" required>
+            <h4>Q4: What is the most aggressive investment you have ever made?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="1" data-value="Cash deposits">
+                    Cash deposits
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="2" data-value="Capital Guaranteed Bonds">
+                    Capital Guaranteed Bonds
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="3" data-value="Managed Funds">
+                    Managed Funds
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="4" data-value="Investment Property (not geared)">
+                    Investment Property (not geared)
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="5" data-value="Shares">
+                    Shares
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q4" value="6" data-value="Geared Investments">
+                    Geared Investments
+                </label class="form-control">
+            </div>            
+        </div>
+        <div class="question hidden" required>
+            <h4>Q5: What type of returns are you most comfortable with?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q5" value="1" data-value="Guaranteed Returns">
+                    Guaranteed Returns
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q5" value="2" data-value="Stable, consistent returns">
+                    Stable, consistent returns
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q5" value="3" data-value="Some Variable returns">
+                    Some Variable returns
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q5" value="4" data-value="Moderately Variable returns">
+                    Moderately Variable returns
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q5" value="5" data-value="Volatile, but potentially higher returns">
+                    Volatile, but potentially higher returns
+                </label class="form-control">
+            </div>            
+        </div>
+        <div class="question hidden" required>
+            <h4>Q6: If you invested $100,000 and within 6 months it fell 10% to $90,000 what would you do?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q6" value="1" data-value="Cash in and never invest with risk again">
+                    Cash in and never invest with risk again
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q6" value="2" data-value="Cash in until markets recover then reinvest">
+                    Cash in until markets recover then reinvest
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q6" value="3" data-value="Wait 6 to 12 months to see if it recovers before taking action - speak to my Financial Adviser">
+                    Wait 6 to 12 months to see if it recovers before taking action - speak to my Financial Adviser
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q6" value="4" data-value="Nothing, I expect volatility">
+                    Nothing, I expect volatility
+                </label class="form-control">
+            </div>            
+        </div>
+        <div class="question hidden" required>
+            <h4>Q7: Which best describes the purpose of your investment?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q7" value="1" data-value="Specific objectives to achieve within 5 years">
+                    Specific objectives to achieve within 5 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q7" value="2" data-value="In receipt of a one-off lump sum and uncertain what to do">
+                    In receipt of a one-off lump sum and uncertain what to do
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q7" value="3" data-value="Nearing retirement and needing to plan">
+                    Nearing retirement and needing to plan
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q7" value="4" data-value="Aiming to accumulate wealth long term in a balanced portfolio">
+                    Aiming to accumulate wealth long term in a balanced portfolio
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q7" value="5" data-value="Investing for specific objectives for longer than 5 years and aiming for growth">
+                    Investing for specific objectives for longer than 5 years and aiming for growth
+                </label class="form-control">
+            </div>            
+        </div>
+        <div class="question hidden" required>
+            <h4>Q8: Within how long do you anticipate the need to access your investment?</h4>
+            <div class="options">
+                <label class="form-control">
+                    <input type="radio" name="q8" value="1" data-value="Within 1 year">
+                    Within 1 year
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q8" value="2" data-value="1 to 3 years">
+                    1 to 3 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q8" value="3" data-value="3 to 5 years">
+                    3 to 5 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q8" value="4" data-value="5 to 7 years">
+                    5 to 7 years
+                </label class="form-control">
+                <label class="form-control">
+                    <input type="radio" name="q8" value="5" data-value="Longer than 7 years">
+                    Longer than 7 years
+                </label class="form-control">
+            </div>            
+        </div>
+        </div>
+        <div id="PostText">
+            <h4>Please review your answers and click Submit when you're ready.</h4>
+        </div>
+        <hr>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+    <div id="result"></div>
+    <button id="printButton" style="display: none;">Print</button>
+</div>
+<script>
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+        // Scroll to top on refresh
+    };
+</script>
+<div class="scroll-buttons">
+    <button id="scrollToTopButton">Scroll to Top</button>
+    <button id="scrollToBottomButton">Scroll to Bottom</button>
+</div>
 </body>
-
 </html>

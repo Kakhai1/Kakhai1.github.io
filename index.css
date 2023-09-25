@@ -1,0 +1,170 @@
+/* Set the background image */
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-size: larger;
+    background-color: #302464; /*#d9fafc ; */
+}
+
+/* Style the header section */
+header {
+    background-color: white;
+    border: 3px solid black; /* Set the border properties */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center-align items vertically */
+    padding: 20px; /* Add padding for spacing */
+    color: black; /* Set the font color to white */
+    text-align: center;
+    border-radius: 20px;
+}
+
+/* Style the header image */
+header img {
+    max-width: 500px; /* Adjust the maximum width of the image */
+    margin-right: 20px; /* Add spacing between the image and text */
+}
+
+/* Style header content (optional) */
+header h1 {
+    font-size: 40px; /* Adjust the font size as needed */
+    margin-left: 40px;
+}
+.formheader {
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.contactInfo label{
+    border: 2px solid black;
+    padding: 1px;
+    border-radius: px;
+    background-color: #302464;
+    color: white;   
+    width: 100px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 45px;
+}
+/* Style the options container with flex layout */
+.options {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Style the individual option items */
+.options label {
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.options input[type="radio"] {
+    margin-right: 10px; /* Add spacing between radio input and text */
+}
+
+.contents {
+    background-color: white;
+    padding: 10px 40px 40px 40px;
+    display: block;
+    text-align: left;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 10px;
+    margin-bottom: 80px;
+}
+
+.QuestionContainer label:hover {
+    background-color: lightgray;
+}
+.question{
+    padding:40px;
+    background-image: url("icons/LogoIcon.jpg");
+    background-attachment: scroll;
+    background-color: rgba(255,255,255,1);
+    background-repeat: no-repeat;
+    background-size:10%;
+    background-position: right top;
+    padding-right: 80px;
+}
+button[type="submit"] {
+    margin-left: 50px;
+    width: 50px,
+    height: 50px,
+}
+.scroll-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.scroll-buttons button {
+    padding: 10px 20px;
+    background-color: #9900ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Add border-radius to the transition */
+    border-radius: 10px; /* Rounded edges */
+    box-shadow: -4px 5px 6px rgba(0, 0, 0, 0.5); /* Modify the values as needed */
+
+}
+
+.scroll-buttons button:hover {
+    background-color: #ba76e8; /* Darken the button on hover */
+}
+#submitButton {
+    padding: 10px 20px 10px 20px;
+    display: none;
+}
+#headerTitle {
+    text-align: center;
+}
+
+/* Initial style to hide questions */
+.question.hidden {
+    display: none;
+}
+
+/* Fade-in animation */
+.question.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Fade-out animation */
+.question.fade-out {
+    animation: fadeOut 0.2s ease-in-out;
+    opacity: 0;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#PostText{
+    display: none;
+}
+#q3{
+    margin-top:
+}
