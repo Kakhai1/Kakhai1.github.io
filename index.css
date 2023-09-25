@@ -182,7 +182,7 @@ button[type="submit"] {
     display: none;
 }
 
-
+/*! PRINT FRIENDLY FORMATTING
 /* Define a media query for print */
 @media print {
     /* Hide the header, scroll buttons, and result div */
@@ -216,8 +216,7 @@ button[type="submit"] {
     /* Add page breaks for better printing (optional) */
     .question {
         padding: 0px;
-        display: flex;
-        flex-direction: row;
+        display: block;
     }
 
     /* Hide the "N/A" checkboxes for email and phone */
