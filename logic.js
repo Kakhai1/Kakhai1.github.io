@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton")
     const questions = document.querySelectorAll('.question');
     const postText = document.getElementById('PostText');
-    const savebutton = document.getElementById('saveButton')
     console.log("Question Length: ", questions.length)
     let currentQuestionIndex = 0;
     
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
         input.addEventListener('change', scrollToNextQuestion);
     });
  ##############   */
-
 //! N/A Checkbox logic
 // Add event listeners to the "Not Available" checkboxes
 const notAvailableEmailCheckbox = document.getElementById("notAvailableEmail");
@@ -77,9 +75,12 @@ function revealNextQuestion() {
             questions[currentQuestionIndex].classList.add('hidden');
             questions[currentQuestionIndex].classList.remove('fade-in');
 
-
             // Move to the next question
             currentQuestionIndex++;
+            //! Progress bar
+            const progress = (currentQuestionIndex / (questions.length)) * 100;
+            const progressBar = document.querySelector('.progress-bar .progress');
+            progressBar.style.width = `${progress}%`;
             // Reveal the next question with fade-in animation
             questions[currentQuestionIndex].classList.remove('hidden');
             questions[currentQuestionIndex].classList.add('fade-in');
@@ -112,6 +113,8 @@ function revealAllQuestions() {
             questionnaireSection.scrollIntoView({ behavior: "smooth", block: "end" });
         }
     }, 100); // Adjust the delay if needed
+    const poggg = document.getElementById('poggg');
+    poggg.style.display = 'none';
 }
 
 let questionrevealcount = 0

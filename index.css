@@ -255,3 +255,22 @@ button[type="submit"] {
         border: 0px black;
     }
 }
+
+/* Style the progress bar container */
+.progress-bar {
+    width: 100%;
+    background-color: #cccccc; /* Set the background color of the progress bar */
+    height: 5px; /* Set the height of the progress bar */
+    position: relative; /* Set the position to relative for absolute positioning of progress indicator */
+}
+
+/* Style the progress indicator */
+.progress {
+    width: 0; /* Start with 0 width */
+    background-color: #ba76e8; /* Set the color of the progress indicator */
+    height: 100%; /* Match the height of the progress bar */
+    position: absolute; /* Position the progress indicator absolutely within the progress bar */
+    transition: width 0.3s ease-in-out; /* Add a transition for smooth animation */
+}
+
+
