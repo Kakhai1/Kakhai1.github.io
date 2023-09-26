@@ -8,13 +8,13 @@ html {
 /* Style the header section */
 header {
     background-color: white;
-    border: 3px solid black; /* Set the border properties */
     display: flex; /* Use flexbox for layout */
     align-items: center; /* Center-align items vertically */
     padding: 20px; /* Add padding for spacing */
     color: black; /* Set the font color to white */
     text-align: center;
     border-radius: 20px;
+    margin: 10px;
 }
 
 /* Style the header image */
@@ -210,7 +210,17 @@ button[type="submit"] {
 /* Define a media query for print */
 @media print {
     /* Hide the header, scroll buttons, and result div */
-    header, .scroll-buttons, #result {
+    .scroll-buttons, #result {
+        display: none;
+    }
+    .header img{
+        max-width: 200px;
+        max-height: 100px;
+    }
+    .header {
+        border: 0px solid white;
+    }
+    .formheader{
         display: none;
     }
     .contactInfo{

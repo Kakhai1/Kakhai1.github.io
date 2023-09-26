@@ -103,6 +103,7 @@ function revealAllQuestions() {
     questions.forEach((question) => {
         question.classList.remove('hidden');
         question.classList.add('fade-in');
+        question.style.backgroundImage = 'none';
     });
     postText.style.display = 'block';
     submitButton.style.display = 'block';
