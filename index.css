@@ -118,6 +118,7 @@ button[type="submit"] {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    display: none;
 }
 
 .scroll-buttons button {
@@ -145,6 +146,7 @@ button[type="submit"] {
         display: flex;
         flex-direction: column;
         border-radius: 20px;
+        display: none;
     }
 
     .scroll-buttons button {

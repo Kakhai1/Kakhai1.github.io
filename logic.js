@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitButton = document.getElementById("submitButton")
     const questions = document.querySelectorAll('.question');
     const postText = document.getElementById('PostText');
+    const scrollbuttons = document.getElementsByClassName('scroll-buttons')
     console.log("Question Length: ", questions.length)
     let currentQuestionIndex = 0;
     
@@ -116,6 +117,9 @@ function revealAllQuestions() {
     }, 100); // Adjust the delay if needed
     const poggg = document.getElementById('poggg');
     poggg.style.display = 'none';
+    for (let i = 0; i < scrollbuttons.length; i++) {
+        scrollbuttons[i].style.display = 'flex';
+    }
 }
 
 let questionrevealcount = 0
