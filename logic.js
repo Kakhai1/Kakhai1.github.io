@@ -100,6 +100,7 @@ function revealNextQuestion() {
         }, 300); // Adjust the delay for fade-out if needed
     }
 }
+let submitbuffer = 0
 function revealAllQuestions() {
     questions.forEach((question) => {
         question.classList.remove('hidden');
@@ -107,7 +108,12 @@ function revealAllQuestions() {
         question.style.backgroundImage = 'none';
     });
     postText.style.display = 'block';
-    submitButton.style.display = 'block';
+    if (submitbuffer === 0) { 
+        submitButton.style.display = 'block';
+        submitbuffer = 1;
+        console.log("submit state", submitbuffer)
+    }
+
     // Scroll to the bottom
     setTimeout(() => {
         const questionnaireSection = document.querySelector(".contents");
@@ -128,7 +134,6 @@ let radioInputs = questions[currentQuestionIndex].querySelectorAll('input[type="
 radioInputs.forEach(input => {
     input.addEventListener('change', revealNextQuestion);
     questionrevealcount ++;
-    console.log("Question #: ", questionrevealcount)
 });
 // Attach click event listeners to radio inputs to reveal all questions when any radio input in Question 8 is selected
 let radioInputsQuestion8 = questions[7].querySelectorAll('input[type="radio"]');
@@ -191,7 +196,6 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
         answers.forEach(answer => {
             totalScore += answer.value;
             consolelogcounter += 1
-            console.log("Question"+consolelogcounter,[answer.value,answer.answer])
         });
         console.log("Total Score:", totalScore)
 
