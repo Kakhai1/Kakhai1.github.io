@@ -214,7 +214,10 @@ button[type="submit"] {
 /* Define a media query for print */
 @media print {
     /* Hide the header, scroll buttons, and result div */
-    .scroll-buttons, #result {
+    .scroll-buttons{
+        display: none;
+    }
+    #scrollToTopButton, #scrollToBottomButton{
         display: none;
     }
     .header img{
