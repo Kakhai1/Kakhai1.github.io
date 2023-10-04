@@ -4,6 +4,9 @@ html {
     font-size: larger;
     background-color: #302464; /*#d9fafc ; */
 }
+body{
+    width: 1000px;
+}
 
 /* Style the header section */
 header {
