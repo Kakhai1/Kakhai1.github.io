@@ -4,9 +4,12 @@ html {
     font-size: larger;
     background-color: #302464; /*#d9fafc ; */
 }
-body{
+/* Center the body on desktop */
+body.centered {
     width: 1000px;
+    margin: 0 auto; /* Center the body horizontally */
 }
+
 
 /* Style the header section */
 header {
