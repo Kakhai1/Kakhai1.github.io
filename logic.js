@@ -169,7 +169,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
     
         if (!notAvailablePhone) {
             const phonenum = document.getElementById("phonenum").value;
-            if (phonenum.length > 7 && phonenum.length < 12) {
+            if (phonenum.length < 7 || phonenum.length > 12) {
                 alert("Please enter a valid phone number.");
                 return;
             }
@@ -202,7 +202,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
         // Display total score and show the result div
         const resultHTML = `<h2>Total Risk Assessment Score: ${totalScore}</h2>
                             <h4>Risk Profile:<br> <span id="risk-profile-placeholder">{profile}</span></h4>
-                            <p>We have received your submission. Please print this page for your own reference, Thank you!</p>`;
+                            <p>We have received your submission. Please print this page and bring it with you to your meeting, Thank you!</p>`;
         resultDiv.innerHTML = resultHTML;
         resultDiv.style.display = "block"; // Show the result div
         submitButton.style.display="none";
