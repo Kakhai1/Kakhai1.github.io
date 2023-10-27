@@ -9,27 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Question Length: ", questions.length)
     let currentQuestionIndex = 0;
     
-/* ########## Code for if page is fully revealed and want scroll to next question.
-
-    function scrollToNextQuestion() {
-        if (currentQuestionIndex < questions.length - 1) {
-            questions[currentQuestionIndex].classList.add('question-animate-out');
-            currentQuestionIndex++;
-            questions[currentQuestionIndex].classList.add('question-animate-in');
-
-            // Scroll to the next question with a smooth transition
-            setTimeout(() => {
-                questions[currentQuestionIndex].scrollIntoView({ behavior: "smooth" });
-            }, 100); // Adjust the delay if needed
-        }
-    }
-
-    // Attach click event listeners to radio inputs to scroll to the next question
-    const radioInputs = document.querySelectorAll('input[type="radio"]');
-    radioInputs.forEach(input => {
-        input.addEventListener('change', scrollToNextQuestion);
-    });
- ##############   */
 //! N/A Checkbox logic
 // Add event listeners to the "Not Available" checkboxes
 const notAvailableEmailCheckbox = document.getElementById("notAvailableEmail");
@@ -163,7 +142,7 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
             // Validate email format
             if (!isValidEmail(email)) {
                 alert("Please enter a valid email address.");
-                return; // Prevent form submission if the email format is invalid
+                return;
             }
         }
     
@@ -204,12 +183,9 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
                             <h4>Risk Profile:<br> <span id="risk-profile-placeholder">{profile}</span></h4>
                             <p>We have received your submission. Please print this page and bring it with you to your meeting, Thank you!</p>`;
         resultDiv.innerHTML = resultHTML;
-        resultDiv.style.display = "block"; // Show the result div
+        resultDiv.style.display = "block"; 
         submitButton.style.display="none";
-        printButton.style.display = "block"; //Show Print button
-
-        // Send email with the answers (you'll need to implement this part)
-        sendEmail(fullName, answers);
+        printButton.style.display = "block"; 
 
         // You can determine the risk profile based on the total score and set it dynamically
         let riskProfile = "";
@@ -233,16 +209,12 @@ questions[currentQuestionIndex].classList.add('question-animate-in');
             riskProfilePlaceholder.textContent = riskProfile;
         }
     });
-
-    // Function to send an email (implement this part)
-    function sendEmail(fullName, email, phonenum, answers, riskProfile) {
-        //! Placeholder
-    }
     // Function to validate email format
     function isValidEmail(email) {
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailPattern.test(email);
     }
+    // Print button
     printButton.addEventListener("click", function () {
         window.print();
     });
